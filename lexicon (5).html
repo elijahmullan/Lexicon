@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#fcfaf4">
+<title>Lexicon — The Daily Word Paper</title>
+<style>
+ :root{--paper:#fcfaf4;--ink:#201f1a;--muted:#68665e;--rule:#27251f;--green:#234b35;--red:#9a3e31;--wash:#f2eee4;--white:#fffefa}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif}button,input{font:inherit}button{cursor:pointer}.page{max-width:1180px;margin:auto;padding:0 28px}.topline{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--rule);padding:10px 0;color:var(--muted);font:10px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase}.masthead{text-align:center;padding:18px 0 12px;border-bottom:4px double var(--rule)}.masthead .edition{font:10px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase}.brand{font-family:"Bodoni 72",Didot,"Bodoni MT",Georgia,"Times New Roman",serif;font-size:clamp(48px,8vw,92px);font-weight:700;letter-spacing:3px;line-height:1;margin:6px 0 3px;color:var(--green)}.brand span{font-style:normal;font-weight:800;color:var(--green);letter-spacing:3px}.tagline{font-size:13px;font-style:italic}.navline{display:flex;justify-content:center;gap:24px;border-bottom:1px solid var(--rule);padding:9px 0;font:10px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase}.lead{text-align:center;padding:26px 0 22px;border-bottom:1px solid var(--rule)}.kicker{font:700 10px Arial,sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--green)}h1{font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:-1.8px;margin:9px 0}.lead p{font-size:15px;line-height:1.5;margin:0 auto;max-width:600px;color:#555249}.daily-meta{display:flex;justify-content:space-between;gap:10px;border-bottom:3px double var(--rule);padding:10px 0;font:10px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase}.puzzles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:4px}.puzzle{padding:20px 17px 22px;border-right:1px solid #bcb6a8;min-width:0;position:relative}.puzzle:first-child{padding-left:0}.puzzle:last-child{border-right:0;padding-right:0}.puzzle-head{display:flex;justify-content:space-between;align-items:center;gap:6px;border-bottom:2px solid var(--rule);padding-bottom:9px;margin-bottom:13px}.number{font-size:26px;font-weight:700}.difficulty{font:700 9px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--green);text-align:right}.difficulty small{display:block;font-size:9px;color:var(--muted);font-weight:400;margin-top:3px}.definition-label{font:700 9px Arial,sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}.definition{font-size:19px;line-height:1.36;min-height:132px;margin:9px 0 14px}.hint-row{min-height:45px;margin:0 0 13px}.hint-btn{border:1px solid var(--green);background:transparent;color:var(--green);padding:8px 10px;font:700 10px Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;width:100%}.hint-btn:hover{background:var(--green);color:white}.hint-text{font:italic 12px/1.4 Arial,sans-serif;color:var(--green);padding:8px 0 0;display:none}.hint-text.shown{display:block}.guess-count{display:flex;justify-content:space-between;font:10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:7px}.attempts{display:flex;gap:4px;margin-bottom:12px}.attempt{height:28px;flex:1;border:1px solid #c9c2b3;display:grid;place-items:center;font:700 10px Arial,sans-serif;overflow:hidden}.attempt.correct{background:var(--green);border-color:var(--green);color:white}.attempt.wrong{color:var(--red);background:#f0dfd8;border-color:#d9b6ac}.guess-form{display:flex;flex-direction:column;gap:7px}.guess-input{width:100%;min-width:0;border:1px solid #a8a191;background:var(--white);padding:11px 10px;font:14px Arial,sans-serif;outline:none}.guess-input:focus{border-color:var(--green);box-shadow:0 0 0 2px #34574222}.guess-btn{background:var(--ink);color:white;border:0;padding:11px;font:700 10px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase}.guess-btn:hover{background:var(--green)}.guess-btn:disabled,.guess-input:disabled{opacity:.5;cursor:not-allowed}.status{font:12px/1.4 Arial,sans-serif;min-height:34px;margin:10px 0 0;color:var(--muted)}.status.good{color:var(--green);font-weight:700}.status.bad{color:var(--red);font-weight:700}.answer{display:none;border-top:2px solid var(--green);margin-top:10px;padding-top:8px;color:var(--green);font-size:19px;font-weight:700;overflow-wrap:anywhere}.answer.show{display:block}.below{border-top:4px double var(--rule);margin-top:10px;padding:14px 0 22px;display:flex;justify-content:space-between;gap:20px;align-items:center}.note{font-size:12px;font-style:italic;color:var(--muted)}.actions{display:flex;gap:12px;flex-wrap:wrap}.plain-btn{border:0;background:transparent;border-bottom:1px solid var(--rule);padding:5px 0;font:700 10px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--ink)}.plain-btn:hover{color:var(--green)}footer{text-align:center;border-top:1px solid var(--rule);padding:15px;font:10px Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}.modal-backdrop{display:none;position:fixed;inset:0;background:#17171199;z-index:5;align-items:center;justify-content:center;padding:20px}.modal-backdrop.open{display:flex}.modal{max-width:430px;background:var(--paper);padding:28px;border:3px double var(--rule)}.modal h2{font-size:30px;margin:0 0 12px}.modal p,.modal li{font-size:14px;line-height:1.6}.modal button{background:var(--ink);color:white;border:0;padding:12px 18px;font:700 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:1px}
+.results-modal{width:min(100%,480px);max-width:480px}.results-score{font:14px Arial,sans-serif;color:var(--muted);margin:0 0 18px}.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}.result-box{min-height:104px;padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;color:white;border:1px solid transparent}.result-box.win{background:var(--green);border-color:var(--green)}.result-box.loss{background:var(--red);border-color:var(--red)}.result-box .result-number{font:700 10px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase;opacity:.9}.result-box .result-status{font:700 18px Georgia,serif}.result-box .result-word{font:12px Arial,sans-serif;overflow-wrap:anywhere}.result-actions{display:flex;gap:10px;flex-wrap:wrap}.result-actions .secondary{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+@media(max-width:900px){.puzzles{grid-template-columns:repeat(2,minmax(0,1fr))}.puzzle:nth-child(2){border-right:0;padding-right:0}.puzzle:nth-child(3){padding-left:0;border-top:1px solid #bcb6a8}.puzzle:nth-child(4){border-top:1px solid #bcb6a8}.definition{min-height:85px}}
+@media(max-width:520px){.page{padding:0 16px}.topline{font-size:8px}.navline{gap:12px;font-size:9px}.puzzles{grid-template-columns:1fr}.puzzle,.puzzle:first-child,.puzzle:last-child,.puzzle:nth-child(2),.puzzle:nth-child(3){padding:17px 0;border-right:0;border-bottom:1px solid #bcb6a8}.puzzle:last-child{border-bottom:0}.puzzle-head{margin-bottom:10px}.definition{min-height:0;font-size:21px}.hint-row{min-height:0}.attempt{height:32px}.guess-form{flex-direction:row}.guess-input{flex:1}.guess-btn{white-space:nowrap}.below{align-items:flex-start;flex-direction:column}.brand{letter-spacing:3px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style></head>
+<body><div class="page">
+<div class="topline"><span>Vocabulary · Curiosity · Culture</span><span id="dateTop">Daily edition</span></div>
+<header class="masthead"><div class="edition">daily word puzzle</div><div class="brand">LEXICON</div><div class="tagline">Four definitions. Four answers. How well do you know your words?</div></header>
+<nav class="navline"><span>Wordplay</span><span>Edition No. <b id="editionNo">001</b></span><button class="plain-btn" id="howBtn" type="button">How to play</button></nav>
+<section class="lead"><div class="kicker">The daily definition challenge</div><h1>Read between the words.</h1><p>Four secret words are hiding in plain sight. Every puzzle is set at baseline difficulty, with five guesses to solve each word.</p></section>
+<div class="daily-meta"><span>Today’s puzzles</span><span id="dateLine"></span></div>
+<section class="puzzles" id="puzzles" aria-label="Four daily word puzzles"></section>
+<section class="below"><div class="note">A daily exercise for the curious mind. New puzzles arrive at local midnight.</div><div class="actions"><button class="plain-btn" id="shareBtn" type="button">Share via Messages ↗</button><button class="plain-btn" id="resetBtn" type="button">Reset for testing ↻</button></div></section>
+</div><footer>Printed for the pleasure of knowing · The Lexicon</footer>
+<div class="modal-backdrop" id="howModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><h2 id="modalTitle">How to play</h2><p>Read each definition and enter the word you think matches it.</p><ul><li>There are four puzzles every day, all set at baseline difficulty.</li><li>You have five guesses for each word. Spelling must be exact; capitalisation does not matter.</li><li>Each puzzle has one optional hint. Tap “Reveal hint” if you need a nudge.</li><li>Your progress is saved on this device. A fresh edition arrives at local midnight.</li></ul><button id="closeModalBtn" type="button">Back to the paper</button></div></div>
+<div class="modal-backdrop" id="resultsModal" role="dialog" aria-modal="true" aria-labelledby="resultsTitle"><div class="modal results-modal"><div class="kicker">Edition No. 1 · Daily results</div><h2 id="resultsTitle">Your results</h2><p class="results-score" id="resultsScore">You solved 0 of 4 words.</p><div class="result-grid" id="resultGrid" aria-label="Results for all four puzzles"></div><div class="result-actions"><button id="closeResultsBtn" type="button" class="secondary">Back to Lexicon</button><button id="shareResultsBtn" type="button">Share results ↗</button></div></div></div>
+<script>
+// Daily word bank. Add a custom definition and hint to PUZZLES for any word.
+const WORDS = `perceptive ephemeral resilient eloquent pragmatic ubiquitous meticulous ambivalent serendipity ineffable benevolent candid diligent empathy fortitude gregarious humility impartial juxtapose lucid nostalgia obscure paradox quintessential reverie scrupulous tenacious unanimous versatile whimsical zealous abundant acumen adversity aesthetic alleviate amiable anomaly apathy arduous articulate assertive astute austere authentic avarice belligerent brevity capricious catalyst coherent complacent concise conundrum copious credulous cryptic culminate cursory deference delineate demure derivative despondent dichotomy diffident diligence discerning disparate disseminate dogmatic eclectic effervescent egregious elated elusive emulate enigmatic epiphany equanimity erudite esoteric exacerbate exemplary exonerate exuberant facilitate fallacy fastidious fervent flourish formidable frugal futile galvanize genuine hackneyed haphazard harbinger idiosyncrasy immutable impeccable implicit incessant incisive indifferent indignant inevitable ingenious inherent innate insatiable inscrutable integrity intrepid irascible ironic itinerary lethargic loquacious magnanimous malevolent malleable mundane myriad nebulous nefarious nonchalant novel nuance oblivious obstinate ominous opulent ostensible palpable panacea paragon paramount peripheral pervasive plausible poignant prudent profound prolific prosaic provocative pungent rational reclusive reconcile redundant relinquish remorse resolute reticent rhetoric rudimentary sagacious sanguine scrutinize sentiment sincere skeptical solace solicitous sporadic staunch substantiate succinct superfluous surreptitious tangible temperance transient trepidation trivial unassuming undermine unequivocal unprecedented unpretentious urbane utilitarian vacillate venerable verbose vindicate volatile voracious wary waver wretched zeal aberration abhor accolade acquiesce adulation affable affinity agile alacrity altruism ambiguous ameliorate anachronism antithesis apprehensive ardent assiduous audacious auspicious banal boisterous cacophony candour chagrin charisma circumspect coalesce coerce cogent collaborate commendable compelling composure concede concur condescending confound conjecture consensus conspicuous contemplate contrite corroborate credence cynical debilitate decorum decry deft dejected demagogue denounce deplete deplore deprecate deride detrimental devious didactic discrepancy disdain disingenuous disparage dispel disposition divergent elicit eloquence embellish empirical enervate enhance entail enthrall epitome equivocal evoke exemplify exhaustive expedient explicit extol fabricate feasible fickle finesse flagrant fleeting foreboding fortuitous foster garrulous grandiose gratuitous haughty hermetic heterogeneous hypocrisy iconoclast illustrious imminent impartiality implacable inadvertent inane incongruous indolent infallible inference inhibit innocuous insidious intangible intermittent intuitive inundate inveterate irrefutable judicious lament latent laudable leeway longevity lucidity magnify malign metaphor methodical mitigate modicum morose munificent negligible notorious obdurate officious onerous orthodox ostentatious overwhelm parochial partisan patronize peculiar pedantic penchant perfunctory perilous permeate perpetuate perspicacious pertinent philanthropy placate prerogative prescient proclivity prodigal prodigious prosaically provincial pristine proximity quell querulous rancour rebuttal recalcitrant reciprocal reiterate rejuvenate relevant renounce repertoire reprehensible reprimand requisite revere rueful salient scruple serene shrewd solitary specious steadfast stigma stoic stringent subtle succour surmise susceptible tacit tactful tedious temperamental tentative theoretical thorough thwart transcend ubiquity unfathomable unilateral unorthodox unravel valiant vehement veracity viable vigilant warrant zephyr acoustic adaptable adroit affluent aggravate allocate amass analytical animate anonymous antagonist apex arbitrary archive aspire assess attain attribute augment`.split(/\s+/);
+const PUZZLES = {
+ perceptive:{definition:"Having or showing a quick understanding of things; noticing details others miss.",hint:"Observant and insightful"},
+ ephemeral:{definition:"Lasting for a very short time; brief and fleeting.",hint:"Here today, gone tomorrow"},
+ resilient:{definition:"Able to recover quickly after difficulty, pressure, or change.",hint:"Bouncing back"},
+ eloquent:{definition:"Fluent or persuasive in speaking or writing.",hint:"Expressive with words"},
+ pragmatic:{definition:"Dealing with things sensibly and realistically, based on practical rather than theoretical considerations.",hint:"Practical, not idealistic"},
+ ubiquitous:{definition:"Present, appearing, or found everywhere.",hint:"Seems to be everywhere"},
+ meticulous:{definition:"Showing great attention to detail; very careful and precise.",hint:"Careful with every detail"},
+ ambivalent:{definition:"Having mixed feelings or contradictory ideas about something.",hint:"Torn between two feelings"},
+ serendipity:{definition:"The occurrence of happy or useful discoveries by chance.",hint:"A lucky accident"},
+ ineffable:{definition:"Too great, beautiful, or powerful to be expressed in words.",hint:"Beyond words"},
+ benevolent:{definition:"Well-meaning and kindly; wanting to do good for others.",hint:"Kind-hearted"},
+ candid:{definition:"Truthful and straightforward; frank.",hint:"Honest and direct"},
+ diligent:{definition:"Showing care and conscientious effort in one's work.",hint:"Hard-working and careful"},
+ empathy:{definition:"The ability to understand and share another person's feelings.",hint:"Feeling with someone"},
+ fortitude:{definition:"Courage in pain or adversity.",hint:"Strength under pressure"},
+ gregarious:{definition:"Fond of company; sociable.",hint:"Loves being around people"},
+ humility:{definition:"A modest view of one's own importance.",hint:"The opposite of arrogance"},
+ impartial:{definition:"Treating all sides fairly; not favouring one person or group.",hint:"Fair and unbiased"},
+ juxtapose:{definition:"To place two things side by side to compare or contrast them.",hint:"Put things next to each other"},
+ lucid:{definition:"Expressed clearly; easy to understand.",hint:"Clear and understandable"},
+ nostalgia:{definition:"A sentimental longing for the past.",hint:"A warm ache for yesterday"},
+ obscure:{definition:"Not clearly expressed, understood, or known.",hint:"Hard to make out"},
+ paradox:{definition:"A seemingly contradictory statement that may reveal a truth.",hint:"A contradiction with a point"},
+ quintessential:{definition:"Representing the most perfect or typical example of something.",hint:"The ultimate example"},
+ reverie:{definition:"A state of being pleasantly lost in one's thoughts; a daydream.",hint:"A waking daydream"},
+ scrupulous:{definition:"Very careful to do what is right and correct.",hint:"Conscientious and principled"},
+ tenacious:{definition:"Persistent; not giving up easily.",hint:"Holds on and keeps going"},
+ unanimous:{definition:"Agreed to by everyone involved.",hint:"Everyone is in agreement"},
+ versatile:{definition:"Able to adapt or be used for many different purposes.",hint:"Good at many things"},
+ whimsical:{definition:"Playfully unusual or fanciful.",hint:"Quirky and imaginative"},
+ zealous:{definition:"Having great energy or enthusiasm for a cause or objective.",hint:"Fervently enthusiastic"},
+ abundant:{definition:"Existing in large quantities; plentiful.",hint:"More than enough"},
+ acumen:{definition:"The ability to make good judgements and quick decisions.",hint:"Sharp judgement"},
+ adversity:{definition:"Difficulties or misfortune.",hint:"Hard times"},
+ aesthetic:{definition:"Concerned with beauty or the appreciation of beauty.",hint:"About appearance and style"},
+ alleviate:{definition:"To make pain, difficulty, or a problem less severe.",hint:"Ease the burden"},
+ amiable:{definition:"Friendly and pleasant.",hint:"Easy to get along with"},
+ anomaly:{definition:"Something that differs from what is standard, normal, or expected.",hint:"An unusual exception"},
+ apathy:{definition:"Lack of interest, enthusiasm, or concern.",hint:"Not caring much"},
+ arduous:{definition:"Involving or requiring strenuous effort; difficult.",hint:"Tough and demanding"},
+ articulate:{definition:"Able to express thoughts and feelings clearly.",hint:"Speaks clearly"},
+ assertive:{definition:"Confidently stating one's needs or opinions without being aggressive.",hint:"Clear and confident"},
+ astute:{definition:"Able to understand situations and judge them accurately.",hint:"Clever and perceptive"},
+ authentic:{definition:"Genuine; of undisputed origin and not a copy.",hint:"The real thing"},
+ capricious:{definition:"Given to sudden, unpredictable changes of mood or behaviour.",hint:"Changeable on a whim"},
+ catalyst:{definition:"A person or thing that causes an important change or event.",hint:"The spark that starts change"},
+ coherent:{definition:"Logical, consistent, and easy to understand.",hint:"It all makes sense"},
+ complacent:{definition:"Self-satisfied, especially without awareness of possible danger or difficulty.",hint:"Too comfortable to improve"},
+ concise:{definition:"Giving much information clearly in few words.",hint:"Brief but clear"},
+ conundrum:{definition:"A confusing or difficult problem.",hint:"A tricky puzzle"},
+ copious:{definition:"Abundant in supply or quantity.",hint:"A great deal of something"},
+ credulous:{definition:"Too ready to believe things; gullible.",hint:"Believes too easily"},
+ cryptic:{definition:"Having a meaning that is mysterious or obscure.",hint:"Mysterious and hard to decode"},
+ cursory:{definition:"Hasty and therefore not thorough or detailed.",hint:"A quick glance"},
+ demure:{definition:"Reserved, modest, and shy.",hint:"Quietly modest"},
+ despondent:{definition:"In low spirits from loss of hope or courage.",hint:"Deeply discouraged"},
+ eclectic:{definition:"Deriving ideas, style, or taste from a broad range of sources.",hint:"A mix of many influences"},
+ effervescent:{definition:"Lively, enthusiastic, and full of energy.",hint:"Bubbly and energetic"},
+ elated:{definition:"Ecstatically happy.",hint:"Over the moon"},
+ elusive:{definition:"Difficult to find, catch, or achieve.",hint:"Hard to pin down"},
+ emulate:{definition:"To match or surpass someone by imitating them.",hint:"Copy in order to equal"},
+ enigmatic:{definition:"Difficult to interpret or understand; mysterious.",hint:"An intriguing mystery"},
+ epiphany:{definition:"A sudden, striking realisation.",hint:"A lightbulb moment"},
+ equanimity:{definition:"Calmness and composure, especially in a difficult situation.",hint:"Keeping your cool"},
+ erudite:{definition:"Having or showing great knowledge or learning.",hint:"Scholarly and learned"},
+ esoteric:{definition:"Understood by only a small group with specialised knowledge.",hint:"For insiders"},
+ exacerbate:{definition:"To make a problem or bad situation worse.",hint:"Make matters worse"},
+ exemplary:{definition:"Serving as a desirable model; excellent.",hint:"Worthy of imitation"},
+ exonerate:{definition:"To clear someone from blame or accusation.",hint:"Prove not guilty"},
+ exuberant:{definition:"Filled with lively energy and excitement.",hint:"Overflowing with enthusiasm"},
+ facilitate:{definition:"To make an action or process easier.",hint:"Help something happen"},
+ fallacy:{definition:"A mistaken belief, especially one based on unsound reasoning.",hint:"A flaw in logic"},
+ fastidious:{definition:"Very attentive to accuracy and detail; hard to please.",hint:"Extremely particular"},
+ fervent:{definition:"Having or displaying passionate intensity.",hint:"Passionate and intense"},
+ flourish:{definition:"To grow or develop in a healthy or vigorous way.",hint:"Thrive"},
+ formidable:{definition:"Inspiring fear or respect through impressive power or capability.",hint:"Intimidatingly capable"},
+ frugal:{definition:"Careful about spending money or using resources.",hint:"Careful with cash"},
+ futile:{definition:"Incapable of producing any useful result; pointless.",hint:"All effort, no result"},
+ galvanize:{definition:"To shock or excite someone into taking action.",hint:"Spur into action"},
+ genuine:{definition:"Truly what something is said to be; authentic.",hint:"Not fake"},
+ hackneyed:{definition:"Lacking originality because of overuse.",hint:"A tired cliché"},
+ haphazard:{definition:"Lacking any obvious principle of organisation; random.",hint:"Thrown together randomly"},
+ harbinger:{definition:"A sign or warning that something is going to happen.",hint:"A signal of what's coming"},
+ immutable:{definition:"Unchanging over time or unable to be changed.",hint:"Cannot be altered"},
+ impeccable:{definition:"In accordance with the highest standards; flawless.",hint:"Without fault"},
+ implicit:{definition:"Suggested though not directly expressed.",hint:"Understood without being said"},
+ incessant:{definition:"Continuing without pause or interruption.",hint:"Never-ending"},
+ incisive:{definition:"Intelligently analytical and clear-thinking.",hint:"Sharp and penetrating"},
+ inevitable:{definition:"Certain to happen; unavoidable.",hint:"Cannot be avoided"},
+ ingenious:{definition:"Clever, original, and inventive.",hint:"Inventive and clever"},
+ inherent:{definition:"Existing as a permanent or essential part of something.",hint:"Built into its nature"},
+ innate:{definition:"Existing naturally from birth; not learned.",hint:"Born with it"},
+ inscrutable:{definition:"Impossible to understand or interpret.",hint:"Unreadable or mysterious"},
+ integrity:{definition:"The quality of being honest and having strong moral principles.",hint:"Doing right when unseen"},
+ intrepid:{definition:"Fearless; adventurous.",hint:"Brave in the face of danger"},
+ ironic:{definition:"Happening in the opposite way to what is expected, often humorously.",hint:"The unexpected opposite"},
+ lethargic:{definition:"Affected by a lack of energy or enthusiasm.",hint:"Sluggish and tired"},
+ loquacious:{definition:"Tending to talk a great deal.",hint:"Very talkative"},
+ magnanimous:{definition:"Generous or forgiving, especially toward a rival.",hint:"Big-hearted in victory"},
+ malevolent:{definition:"Having or showing a wish to do evil to others.",hint:"Ill-intentioned"},
+ malleable:{definition:"Easily shaped or influenced.",hint:"Can be moulded"},
+ mundane:{definition:"Lacking interest or excitement; ordinary.",hint:"Everyday and ordinary"},
+ myriad:{definition:"A countless or extremely great number.",hint:"A huge number"},
+ nebulous:{definition:"Unclear, vague, or ill-defined.",hint:"Fuzzy around the edges"},
+ nonchalant:{definition:"Feeling or appearing casually calm and relaxed.",hint:"Unbothered"},
+ nuance:{definition:"A subtle difference in meaning, expression, or feeling.",hint:"A fine distinction"},
+ oblivious:{definition:"Unaware of or not noticing what is happening.",hint:"Completely unaware"},
+ obstinate:{definition:"Stubbornly refusing to change one's opinion or course of action.",hint:"Won't budge"},
+ ominous:{definition:"Giving the impression that something bad is going to happen.",hint:"A bad sign"},
+ opulent:{definition:"Ostentatiously rich and luxurious.",hint:"Lavish and luxurious"},
+ palpable:{definition:"So intense as to be almost felt physically; unmistakable.",hint:"Almost tangible"},
+ panacea:{definition:"A solution or remedy for all difficulties or diseases.",hint:"A cure-all"},
+ paragon:{definition:"A person or thing regarded as a perfect example of a quality.",hint:"A model of excellence"},
+ paramount:{definition:"More important than anything else; supreme.",hint:"Top priority"},
+ pervasive:{definition:"Spreading widely throughout an area or group.",hint:"Present throughout"},
+ plausible:{definition:"Seeming reasonable or probable.",hint:"Sounds believable"},
+ poignant:{definition:"Evoking a keen sense of sadness or regret.",hint:"Deeply moving"},
+ profound:{definition:"Very great or intense; having deep insight or meaning.",hint:"Deep and significant"},
+ prolific:{definition:"Producing many works, results, or offspring.",hint:"Highly productive"},
+ pungent:{definition:"Having a sharply strong smell or taste.",hint:"Sharp and strong"},
+ rational:{definition:"Based on reason rather than emotion.",hint:"Logical"},
+ reclusive:{definition:"Avoiding other people; living in seclusion.",hint:"Keeps to themselves"},
+ reconcile:{definition:"To restore friendly relations or make ideas compatible.",hint:"Make peace or make consistent"},
+ redundant:{definition:"No longer needed or useful; superfluous.",hint:"Unnecessary repetition"},
+ relinquish:{definition:"To voluntarily give up or let go of something.",hint:"Release your hold"},
+ remorse:{definition:"Deep regret or guilt for a wrong committed.",hint:"Guilt after wrongdoing"},
+ resolute:{definition:"Admirably purposeful, determined, and unwavering.",hint:"Firmly determined"},
+ reticent:{definition:"Not revealing thoughts or feelings readily.",hint:"Quiet about personal matters"},
+ rhetoric:{definition:"The art of effective or persuasive speaking or writing.",hint:"Persuasive language"},
+ rudimentary:{definition:"Basic and undeveloped; at an early stage.",hint:"Only the basics"},
+ sagacious:{definition:"Having or showing keen mental discernment and good judgement.",hint:"Wise and perceptive"},
+ sanguine:{definition:"Optimistic or positive, especially in a difficult situation.",hint:"Hopeful and upbeat"},
+ scrutinize:{definition:"To examine something very carefully.",hint:"Inspect closely"},
+ skeptical:{definition:"Not easily convinced; having doubts.",hint:"Needs evidence"},
+ solace:{definition:"Comfort or consolation in a time of distress.",hint:"Comfort in sorrow"},
+ sporadic:{definition:"Occurring at irregular intervals or only occasionally.",hint:"Now and then"},
+ staunch:{definition:"Loyal, committed, and dependable.",hint:"Firmly loyal"},
+ succinct:{definition:"Briefly and clearly expressed.",hint:"Short and to the point"},
+ superfluous:{definition:"Unnecessary, especially through being more than enough.",hint:"More than is needed"},
+ surreptitious:{definition:"Kept secret, especially because it would not be approved of.",hint:"Done secretly"},
+ tangible:{definition:"Perceptible by touch; clear and definite.",hint:"Real and concrete"},
+ temperance:{definition:"Moderation or self-restraint.",hint:"Measured self-control"},
+ transient:{definition:"Lasting only for a short time; temporary.",hint:"Not permanent"},
+ trepidation:{definition:"A feeling of fear or anxiety about something that may happen.",hint:"Nervous anticipation"},
+ trivial:{definition:"Of little value or importance.",hint:"Not significant"},
+ unassuming:{definition:"Not pretentious or arrogant; modest.",hint:"Quietly modest"},
+ unequivocal:{definition:"Leaving no doubt; unambiguous.",hint:"Crystal clear"},
+ urbane:{definition:"Suave, courteous, and refined in manner.",hint:"Polished and sophisticated"},
+ vacillate:{definition:"To waver between different opinions or actions.",hint:"Unable to decide"},
+ venerable:{definition:"Accorded great respect because of age, wisdom, or character.",hint:"Respected with age"},
+ verbose:{definition:"Using more words than are needed.",hint:"Too wordy"},
+ volatile:{definition:"Liable to change rapidly and unpredictably.",hint:"Unstable and changeable"},
+ voracious:{definition:"Wanting or devouring great quantities of something.",hint:"Insatiable appetite"},
+ wary:{definition:"Feeling or showing caution about possible dangers or problems.",hint:"Careful and alert"},
+ zephyr:{definition:"A soft, gentle breeze.",hint:"A light wind"},
+ prudent:{definition:"Acting with care and good judgement, especially to avoid unnecessary risk.",hint:"Careful and sensible"},
+ ostensible:{definition:"Appearing to be true or real, although that may not actually be the case.",hint:"On the surface"},
+ disparate:{definition:"Essentially different in kind; not readily comparable.",hint:"Distinctly unlike"},
+ perspicacious:{definition:"Having a ready insight into and understanding of things.",hint:"Exceptionally perceptive"},
+ idiosyncrasy:{definition:"A distinctive habit, mannerism, or feature peculiar to an individual.",hint:"A personal quirk"},
+ obfuscate:{definition:"To make something unclear, confusing, or difficult to understand.",hint:"Deliberately muddy the waters"},
+ recalcitrant:{definition:"Resisting authority or control; stubbornly uncooperative.",hint:"Refusing to comply"},
+ intransigent:{definition:"Unwilling to change one's views or agree about something.",hint:"Completely inflexible"},
+ vicissitude:{definition:"A change of circumstances or fortune, typically one that is unwelcome or unpleasant.",hint:"A twist of fate"},
+ pulchritude:{definition:"Physical beauty, especially when considered impressive or striking.",hint:"A formal word for beauty"},
+ sesquipedalian:{definition:"Characterised by the use of long words.",hint:"Long words, ironically"},
+ antediluvian:{definition:"Extremely old-fashioned or outdated; belonging to a very distant past.",hint:"Before the flood; ancient"},
+ pusillanimous:{definition:"Showing a lack of courage or determination; timid.",hint:"Cowardly or faint-hearted"},
+ epistemic:{definition:"Relating to knowledge, its nature, limits, or justification.",hint:"Connected to knowing"},
+ obstreperous:{definition:"Noisy, difficult to control, and unwilling to be restrained.",hint:"Loudly unruly"}
+};
+const uniqueWords=[...new Set(WORDS.map(w=>w.toLowerCase()))];
+// All four daily puzzles now use the same baseline difficulty pool.
+const BASELINE_WORDS=['pragmatic','meticulous','impartial','eloquent','ambivalent','rhetoric','obstinate','tangible','succinct','transient','scrutinize','resolute'];
+const TIERS=Array.from({length:4},()=>({level:100,label:'Baseline',words:BASELINE_WORDS}));
+const fallback={definition:'A word used to describe a particular quality, idea, or way of behaving.',hint:'Think about how this word is used in everyday writing.'};
+const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const today=new Date();const dayIndex=Math.floor(new Date(today.getFullYear(),today.getMonth(),today.getDate()).getTime()/86400000);
+const dayOffset=dayIndex-Math.floor(new Date(2026,0,1).getTime()/86400000);
+const daily=TIERS.map((tier,i)=>{const word=tier.words[((dayOffset+i*3)%tier.words.length+tier.words.length)%tier.words.length];return {...tier,word,puzzle:PUZZLES[word]||fallback}});
+const KEY='lexicon_newspaper_v3';let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch{};
+const todayKey=dateKey(today);let states=saved[todayKey]||daily.map(()=>({guesses:[],finished:false,won:false,hintShown:false}));
+if(!Array.isArray(states)||states.length!==4)states=daily.map(()=>({guesses:[],finished:false,won:false,hintShown:false}));
+states=states.map(s=>({guesses:Array.isArray(s.guesses)?s.guesses.slice(0,5):[],finished:!!s.finished,won:!!s.won,hintShown:!!s.hintShown}));
+const $=id=>document.getElementById(id);
+$('dateTop').textContent=today.toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+$('dateLine').textContent=today.toLocaleDateString(undefined,{day:'2-digit',month:'short',year:'numeric'}).toUpperCase();
+$('editionNo').textContent='1';
+function save(){saved[todayKey]=states;try{localStorage.setItem(KEY,JSON.stringify(saved))}catch{}}
+function revealHint(i){if(states[i].finished)return;states[i].hintShown=true;save();renderCard(i)}
+function submitGuess(i){const input=$(`guess-${i}`);const status=$(`status-${i}`);const s=states[i];if(s.finished)return;const guess=input.value.trim().toLowerCase();if(!guess){status.className='status bad';status.textContent='Enter a word first.';return}if(!/^[a-z-]+$/.test(guess)){status.className='status bad';status.textContent='Use letters only, with an optional hyphen.';return}if(s.guesses.includes(guess)){status.className='status bad';status.textContent='You have already tried that word.';return}s.guesses.push(guess);input.value='';if(guess===daily[i].word){s.finished=true;s.won=true;status.className='status good';status.textContent=`Correct — solved in ${s.guesses.length} ${s.guesses.length===1?'guess':'guesses'}!`}else if(s.guesses.length>=5){s.finished=true;s.won=false;status.className='status bad';status.textContent='No guesses left. The answer is revealed below.'}else{status.className='status';status.textContent='Not quite. Give the definition another read.'}save();renderCard(i);showResultsIfComplete()}
+function renderCard(i){const tier=daily[i],s=states[i],root=$(`puzzle-${i}`);if(!root)return;root.querySelector('.attempts').innerHTML='';for(let j=0;j<5;j++){const el=document.createElement('div');el.className='attempt';if(s.guesses[j]){el.textContent=s.guesses[j];el.title=s.guesses[j];el.classList.add(s.guesses[j]===tier.word?'correct':'wrong')}else el.textContent='·';root.querySelector('.attempts').appendChild(el)}root.querySelector('.guess-count span:last-child').textContent=`${s.guesses.length}/5 guesses`;root.querySelector('.hint-text').textContent=tier.puzzle.hint||fallback.hint;root.querySelector('.hint-text').classList.toggle('shown',s.hintShown);root.querySelector('.hint-btn').textContent=s.hintShown?'Hint revealed':'Reveal hint';root.querySelector('.hint-btn').disabled=s.finished||s.hintShown;root.querySelector('.guess-input').disabled=s.finished;root.querySelector('.guess-btn').disabled=s.finished;const answer=root.querySelector('.answer');answer.textContent=tier.word;answer.classList.toggle('show',s.finished);if(s.finished&&!s.won){const status=root.querySelector('.status');status.className='status bad';status.textContent=`The answer was “${tier.word}”.`} }
+function showResultsIfComplete(){if(!states.every(s=>s.finished))return;const wins=states.filter(s=>s.won).length;$('resultsScore').textContent=`You solved ${wins} of 4 words · ${4-wins} ${4-wins===1?'miss':'misses'}.`;$('resultGrid').innerHTML='';states.forEach((state,i)=>{const box=document.createElement('div');box.className=`result-box ${state.won?'win':'loss'}`;const status=state.won?'WIN':'MISS';box.innerHTML=`<span class="result-number">Puzzle 0${i+1}</span><span class="result-status">${status}</span><span class="result-word"></span>`;box.querySelector('.result-word').textContent=daily[i].word;box.setAttribute('aria-label',`Puzzle ${i+1}: ${state.won?'won':'lost'}, answer ${daily[i].word}`);$('resultGrid').appendChild(box)});$('resultsModal').classList.add('open')}
+function closeResults(){ $('resultsModal').classList.remove('open') }
+$('closeResultsBtn').addEventListener('click',closeResults);$('resultsModal').addEventListener('click',e=>{if(e.target===$('resultsModal'))closeResults()});$('shareResultsBtn').addEventListener('click',async()=>{const wins=states.filter(s=>s.won).length;const squares=states.map(s=>s.won?'🟩':'🟥').join('');const text=`LEXICON · Daily Word Puzzle\n${wins}/4 words solved\n${squares}`;const url=location.protocol==='file:'?'':location.href.split('#')[0];if(navigator.share&&url){try{await navigator.share({title:'LEXICON results',text,url})}catch(e){if(e.name!=='AbortError')fallbackShare(url,text)}}else{const message=url?`${text}\n\nPlay Lexicon: ${url}`:text+'\n\nOpen Lexicon online to share a playable link.';if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(message).then(()=>alert('Results copied. Paste them into Messages or WhatsApp.')).catch(()=>prompt('Copy your results:',message))}else prompt('Copy your results:',message)}});
+function render(){const container=$('puzzles');container.innerHTML='';daily.forEach((tier,i)=>{const card=document.createElement('article');card.className='puzzle';card.id=`puzzle-${i}`;card.innerHTML=`<div class="puzzle-head"><span class="number">0${i+1}</span><span class="difficulty">${tier.label}</span></div><div class="definition-label">Definition</div><p class="definition"></p><div class="hint-row"><button class="hint-btn" type="button">Reveal hint</button><div class="hint-text"></div></div><div class="guess-count"><span>Your guesses</span><span>0/5 guesses</span></div><div class="attempts"></div><form class="guess-form"><input class="guess-input" id="guess-${i}" type="text" maxlength="32" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Your word…" aria-label="Guess for puzzle ${i+1}"><button class="guess-btn" type="submit">Submit ↗</button></form><p class="status" id="status-${i}" aria-live="polite">Five attempts. Make them count.</p><div class="answer"></div>`;card.querySelector('.definition').textContent=tier.puzzle.definition||fallback.definition;card.querySelector('.hint-btn').addEventListener('click',()=>revealHint(i));card.querySelector('form').addEventListener('submit',e=>{e.preventDefault();submitGuess(i)});container.appendChild(card);if(states[i].finished){const status=card.querySelector('.status');if(states[i].won){status.className='status good';status.textContent=`Solved in ${states[i].guesses.length} ${states[i].guesses.length===1?'guess':'guesses'}!`}else{status.className='status bad';status.textContent='No guesses left. The answer is revealed below.'}}renderCard(i)})}
+$('shareBtn').addEventListener('click',async()=>{const solved=states.filter(s=>s.won).length;const url=location.href.split('#')[0];if(location.protocol==='file:'){const message=`Today's Lexicon: ${solved}/4 words solved. Four definitions, four difficulty levels. Can you beat my score?\n\nOnce Lexicon is published online, share its website link here.`;try{await navigator.clipboard.writeText(message);alert('Sharing text copied. To let other people play, publish Lexicon online first, then share its website address.')}catch{alert('To share a playable link, publish Lexicon online first. Then open the website and tap “Share via Messages”.')}return;}const shareData={title:'LEXICON — Daily Word Puzzle',text:`Today's Lexicon: ${solved}/4 words solved. Four definitions, four difficulty levels. Can you beat my score?`,url};if(navigator.share){try{await navigator.share(shareData)}catch(error){if(error.name!=='AbortError')fallbackShare(url,shareData.text)}}else{fallbackShare(url,shareData.text)}});
+function fallbackShare(url,text){const message=`${text}\n\nPlay Lexicon: ${url}`;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(message).then(()=>alert('Share message copied. Paste it into Messages, WhatsApp or another chat.')).catch(()=>prompt('Copy this message to share Lexicon:',message))}else{prompt('Copy this message to share Lexicon:',message)}}
+$('resetBtn').addEventListener('click',()=>{if(!confirm('Reset all four puzzles for testing?'))return;states=daily.map(()=>({guesses:[],finished:false,won:false,hintShown:false}));save();render()});
+const modal=$('howModal');$('howBtn').addEventListener('click',()=>modal.classList.add('open'));$('closeModalBtn').addEventListener('click',()=>modal.classList.remove('open'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+render();if(states.every(s=>s.finished))showResultsIfComplete();document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResults()});setInterval(()=>{if(dateKey(new Date())!==todayKey)location.reload()},30000);
+</script></body></html>
